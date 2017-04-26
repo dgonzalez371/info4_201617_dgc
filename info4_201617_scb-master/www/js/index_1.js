@@ -22,18 +22,6 @@ $(document).on('deviceready', function() {
      window.marcador_D = 0 ;	
 	
 	
-     /////////////////////////////////////////////////////////
-     // canvas_fons  //
-     var fons = document.getElementById('canvas_fons');
-     var ctx_fons = fons.getContext('2d');
-	
-	var imageObj = new Image();
-	imageObj.onload = function() {
-		ctx_fons.drawImage(imageObj, 0, 0, 360, 640);
-	};
-	imageObj.src = 'img/pong_fons.png';
-	
-	
      // REDIMENSIONEM EL CANVAS
      var canvas = document.getElementById('canvas');
      var ctx = canvas.getContext('2d');
@@ -261,7 +249,7 @@ function draw() {
 			var alcada_pantalla_CSS = window.innerWidth ;
      			var amplada_pantalla_CSS = (window.innerHeight)+10 ;
 			canvas.width=canvas.width;
-			canvas.style.backgroundColor = 'transparent' ;
+			$('#canvas').css('background-color', 'rgba(0,0,0,0.2)');
 			ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
 			
 			// linia 1/2 camp
@@ -276,6 +264,17 @@ function draw() {
 			
 			marcador(ctx);
 			
+			// canvas_fons  //
+			var fons = document.getElementById('canvas_fons');
+			var ctx_fons = fons.getContext('2d');
+
+				var imageObj = new Image();
+				imageObj.onload = function() {
+					ctx_fons.drawImage(imageObj,-200, -200, 360, 640);
+				};
+				imageObj.src = 'img/pong_fons.png';
+			
+			
 		}
 	
 		if (estat_joc == 1) 
@@ -285,7 +284,7 @@ function draw() {
 			var alcada_pantalla_CSS = window.innerWidth ;
      		        var amplada_pantalla_CSS = (window.innerHeight)+10 ;
 			canvas.width=canvas.width;
-			canvas.style.backgroundColor = 'transparent' ;
+			$('#canvas').css('background-color', 'rgba(255,255,255,0.2)');
 			ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
 			
 			// linia 1/2 camp
